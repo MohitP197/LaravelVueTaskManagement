@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Task;
 use Illuminate\Http\Request;
+use App\Http\Resources\Task as TaskResource;
 
 class TasksController extends Controller
 {
@@ -17,7 +18,7 @@ class TasksController extends Controller
     {
         $tasks = Task::paginate('5');
 
-        return $tasks;
+        return TaskResource::collection($tasks);
     }
 
     /**
