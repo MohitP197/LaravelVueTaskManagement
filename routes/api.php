@@ -18,4 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::resource('task','API\TasksController');
+Route::resource('task', 'API\TasksController');
+
+Route::post('task', 'API\TaskController@store'); 
+
+Route::put('task', 'API\TaskController@store'); 
