@@ -14,6 +14,9 @@
     <div class="card card-body mb-2" v-for="task in tasks" v-bind:key="task.id">
       <h3>{{task.title}}</h3>
       <h3>{{task.description}}</h3>
+      <p v-show="task.status == 1">
+        <i class="far fa-check-circle completed"></i>
+      </p>
     </div>
   </div>
 </template>
@@ -49,6 +52,7 @@ export default {
         })
         .catch(err => console.log(err));
     },
+    
     makePagination(meta, links) {
       let pagination = {
         current_page: meta.current_page,
@@ -61,3 +65,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.completed {
+  color: green;
+}
+</style>
